@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order — La Casa de Mateo</title>
+
+  <!-- PyScript -->
+  <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+  <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #1976d2;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      background: white;
+      margin: 40px auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 30px;
+    }
+
+    h2 {
+      color: #1976d2;
+      text-align: center;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .menu {
+      margin-top: 25px;
+    }
+
+    .menu label {
+      font-weight: normal;
+    }
+
+    button {
+      display: block;
+      background-color: #1976d2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 25px auto 0;
+    }
+
+    button:hover {
+      background-color: #135ca8;
+    }
+
+    #output {
+      margin-top: 25px;
+      font-weight: bold;
+      white-space: pre-line;
+      background: #f1f1f1;
+      padding: 15px;
+      border-radius: 6px;
+    }
+
+    .back-btn {
+      display: inline-block;
+      text-decoration: none;
+      background: orange;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: 0.3s;
+      margin-top: 15px;
+    }
+
+    .back-btn:hover {
+      background-color: darkorange;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>La Casa de Mateo — Order Form</h1>
+  </header>
+
+  <div class="container">
+    <h2>Food Ordering System</h2>
+
+    <form id="orderForm">
+      <label>Name:</label>
+      <input type="text" id="name" required>
+
+      <label>Address:</label>
+      <input type="text" id="address" required>
+
+      <label>Contact:</label>
+      <input type="text" id="contact" required>
+
+      <div class="menu">
+        <h3>Menu:</h3>
+        <label><input type="checkbox" name="items" value="Espresso"> Espresso (₱50)</label><br>
+        <label><input type="checkbox" name="items" value="Latte"> Latte (₱80)</label><br>
+        <label><input type="checkbox" name="items" value="Cappuccino"> Cappuccino (₱70)</label><br>
+        <label><input type="checkbox" name="items" value="Mocha"> Mocha (₱90)</label><br>
+        <label><input type="checkbox" name="items" value="Americano"> Americano (₱60)</label><br>
+      </div>
+
+      <button py-click="create_order">Place Order</button>
+    </form>
+
+    <div id="output"></div>
+
+    <div style="text-align:center;">
+      <a href="index.html" class="back-btn">← Back to Home</a>
+    </div>
+  </div>
+
+  <py-config>
+    [[fetch]]
+    files = ["main.py"]
+  </py-config>
+
+  <py-script src="main.py"></py-script>
+</body>
+</html>
